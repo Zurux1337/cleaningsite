@@ -1,4 +1,5 @@
 import BeforeAfter from "@/components/BeforeAfter";
+import Calculator from "@/components/Calculator";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
@@ -20,7 +21,9 @@ export default function Home() {
         <HowItWorks />
         <Services />
         <div id="calc">
-          <div id="calc-slot" />
+          <div id="calc-slot">
+            <Calculator />
+          </div>
         </div>
         <Tariffs />
         <BeforeAfter />
