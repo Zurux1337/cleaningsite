@@ -154,7 +154,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
   return (
     <section aria-label="Калькулятор" className="bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-(--color-eyebrow)">Калькулятор</p>
+        <p className="eyebrow">Калькулятор</p>
         <h2 className="t-h2 mt-2">
           Рассчитайте стоимость за 4 шага
         </h2>

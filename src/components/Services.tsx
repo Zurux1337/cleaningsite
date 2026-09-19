@@ -81,7 +81,7 @@ export default function Services() {
   return (
     <section id="services" className="scroll-mt-20 bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-(--color-eyebrow)">Услуги ЧистоДом</p>
+        <p className="eyebrow">Услуги ЧистоДом</p>
         <h2 className="t-h2 mt-2">
           Что мы убираем
         </h2>
@@ -95,7 +95,7 @@ export default function Services() {
               key={title}
               className="flex flex-col rounded-(--radius-card) bg-(--surface-card) p-6 shadow-(--shadow-card)"
             >
-              <p className="inline-block self-start rounded-full bg-(--surface-chip) px-3 py-1 text-[13px] font-medium text-(--color-chip-ink)">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.06em] text-(--color-ink)">
                 {tag}
               </p>
               <h3 className="t-h3 mt-4">{title}</h3>
@@ -109,8 +109,8 @@ export default function Services() {
                 type="button"
                 onClick={() => choose(preset)}
                 className={cn(
-                  "mt-4 rounded-(--radius-btn) bg-(--color-accent) px-6 py-3.5 text-base font-semibold text-(--color-on-accent)",
-                  "transition-colors hover:bg-(--color-accent-hover)",
+                  "mt-4 rounded-(--radius-btn) bg-(--surface-accent) px-6 py-2 text-sm font-semibold uppercase tracking-[0.04em] text-white",
+                  "transition hover:brightness-110",
                 )}
               >
                 Выбрать

@@ -32,7 +32,7 @@ export default function Faq() {
     <section id="faq" className="scroll-mt-20 bg-(--surface-canvas)">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-[0.8fr_1.2fr] md:py-20">
         <div>
-          <p className="text-sm font-medium text-(--color-eyebrow)">Остались вопросы?</p>
+          <p className="eyebrow">Остались вопросы?</p>
           <h2 className="t-h2 mt-2">
             Частые вопросы
           </h2>
@@ -43,7 +43,7 @@ export default function Faq() {
               key={q}
               className="group rounded-(--radius-card) bg-(--surface-card) px-6 py-4 shadow-(--shadow-card)"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[18px] font-semibold italic text-(--color-ink) marker:hidden [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[18px] font-semibold text-(--color-ink) marker:hidden [&::-webkit-details-marker]:hidden">
                 {q}
                 <ChevronDown className="size-5 shrink-0 text-(--color-muted) transition-transform group-open:rotate-180" aria-hidden />
               </summary>

@@ -8,7 +8,7 @@ export default function Cta() {
         <span className="mx-auto grid size-14 place-items-center rounded-[20px] bg-(--surface-tile)">
           <Sparkles className="size-6 text-(--color-tile-icon)" aria-hidden />
         </span>
-        <p className="mt-6 text-sm font-medium text-(--color-eyebrow)">Гарантия 24 часа</p>
+        <p className="eyebrow">Гарантия 24 часа</p>
         <h2 className="t-display mx-auto mt-2 max-w-4xl">
           Чистая квартира уже сегодня — рассчитайте за 60 секунд
         </h2>
@@ -18,8 +18,8 @@ export default function Cta() {
         <a
           href="#calc"
           className={cn(
-            "mt-8 inline-flex items-center gap-2 rounded-(--radius-btn) bg-(--color-accent) px-6 py-3.5",
-            "text-base font-semibold text-(--color-on-accent) transition-colors hover:bg-(--color-accent-hover)",
+            "mt-8 inline-flex items-center gap-2 rounded-(--radius-btn) bg-(--surface-accent) px-6 py-2",
+            "text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:brightness-110",
           )}
         >
           Рассчитать стоимость

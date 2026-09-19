@@ -37,7 +37,7 @@ export default function Reviews() {
   return (
     <section id="reviews" className="scroll-mt-20 bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-(--color-eyebrow)">Отзывы</p>
+        <p className="eyebrow">Отзывы</p>
         <h2 className="t-h2 mt-2">
           4.9 — 1500+ уборок
         </h2>
@@ -52,7 +52,7 @@ export default function Reviews() {
               <blockquote className="mt-3 text-base leading-[1.5] text-(--color-body)">{text}</blockquote>
               <figcaption className="mt-4 flex items-center justify-between gap-2 text-sm">
                 <span className="font-semibold text-(--color-ink)">{name}</span>
-                <span className="rounded-full bg-(--surface-chip) px-2.5 py-1 text-[13px] font-medium text-(--color-chip-ink)">
+                <span className="text-[12px] font-semibold uppercase tracking-[0.06em] text-(--color-ink)">
                   {service}
                 </span>
               </figcaption>
