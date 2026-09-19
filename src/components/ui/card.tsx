@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export function Card({ className, ...rest }: HTMLAttributes<HTMLElement>) {
   return (
     <aside
-      className={cn("rounded-3xl border border-sky-100 bg-white p-6 shadow-sm", className)}
+      className={cn("rounded-none border border-hairline-gray bg-pure-white p-6", className)}
       {...rest}
     />
   );

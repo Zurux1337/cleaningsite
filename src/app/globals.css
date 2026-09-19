@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
-:root {
-  --brand: #0ea5e9;
-  --mint: #10b981;
+@theme {
+  /* Tech Barcelona tokens (DESIGN 2) — verbatim */
+  --color-cobalt-action: #0075ff;
+  --color-ink-black: #090707;
+  --color-graphite: #212529;
+  --color-pure-white: #ffffff;
+  --color-hairline-gray: #cccccc;
+  --color-pure-black: #000000;
+  --color-shadow-whisper: #eeeeee;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #212529;
 }

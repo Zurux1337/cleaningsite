@@ -1,6 +1,5 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
 import { PHONE, PHONE_HREF } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -17,17 +16,17 @@ export function openCabinet() {
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-sky-100 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2 font-bold text-slate-900">
-          <span className="grid size-9 place-items-center rounded-2xl bg-sky-500 text-white">
-            <Sparkles className="size-5" aria-hidden />
+    <header className="bg-pure-white">
+      <div className="mx-auto flex h-12 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <a href="#top" className="flex items-center gap-2 text-ink-black">
+          <span className="grid size-6 place-items-center bg-pure-black text-sm text-pure-white">
+            Ч
           </span>
           ЧистоДом
         </a>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex" aria-label="Основная навигация">
+        <nav className="hidden items-center gap-6 text-[13px] text-graphite md:flex" aria-label="Основная навигация">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} className="transition-colors hover:text-sky-600">
+            <a key={item.href} href={item.href} className="transition-colors hover:text-ink-black">
               {item.label}
             </a>
           ))}
@@ -35,7 +34,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={PHONE_HREF}
-            className="hidden text-sm font-semibold text-slate-800 hover:text-sky-600 sm:block"
+            className="hidden text-[13px] text-graphite hover:text-ink-black sm:block"
           >
             {PHONE}
           </a>
@@ -43,8 +42,8 @@ export default function Header() {
             type="button"
             onClick={openCabinet}
             className={cn(
-              "rounded-full border border-sky-200 bg-white px-4 py-2 text-sm font-semibold text-sky-700",
-              "transition-colors hover:border-sky-300 hover:bg-sky-50",
+              "border border-graphite bg-transparent px-4 py-2 text-sm text-graphite",
+              "transition-colors hover:bg-shadow-whisper",
             )}
           >
             Кабинет
@@ -52,8 +51,8 @@ export default function Header() {
           <a
             href="#calc"
             className={cn(
-              "rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-white shadow-sm",
-              "transition-colors hover:bg-sky-600",
+              "bg-cobalt-action px-4 py-2 text-sm text-pure-white",
+              "transition-colors hover:bg-[#005fd4]",
             )}
           >
             Заказать

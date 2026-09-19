@@ -31,35 +31,20 @@ const PLANS = [
 
 export default function Tariffs() {
   return (
-    <section id="tariffs" className="scroll-mt-20 bg-gradient-to-b from-white via-sky-50/60 to-white">
+    <section id="tariffs" className="scroll-mt-20 bg-pure-white">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-semibold text-sky-600">Пакеты</p>
-        <h2 className="mt-2 text-3xl font-extrabold text-slate-900">
+        <p className="text-[12px] uppercase tracking-[0.08em] text-graphite">Пакеты</p>
+        <h2 className="mt-2 text-[50px] leading-[1] tracking-[-0.045em] text-ink-black">
           Тарифы под вашу задачу
         </h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-px border border-hairline-gray bg-hairline-gray md:grid-cols-3">
           {PLANS.map(({ icon: Icon, name, price, text, features, highlight }) => (
-            <article
-              key={name}
-              className={cn(
-                "flex flex-col rounded-3xl border p-6",
-                highlight
-                  ? "border-sky-500 bg-white shadow-xl shadow-sky-100"
-                  : "border-sky-100 bg-white",
-              )}
-            >
-              <span
-                className={cn(
-                  "grid size-11 place-items-center rounded-2xl shadow-sm",
-                  highlight ? "bg-sky-500 text-white" : "bg-sky-50 text-sky-600",
-                )}
-              >
-                <Icon className="size-5" aria-hidden />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-slate-900">{name}</h3>
-              <p className="mt-1 text-sm font-semibold text-sky-600">{price}</p>
-              <p className="mt-1 text-sm text-slate-600">{text}</p>
-              <ul className="mt-4 space-y-1.5 text-sm text-slate-600">
+            <article key={name} className="flex flex-col bg-pure-white p-6">
+              <Icon className="size-5 text-graphite" aria-hidden />
+              <h3 className="mt-4 text-[22px] leading-[1.2] text-ink-black">{name}</h3>
+              <p className="mt-1 text-sm text-graphite">{price}</p>
+              <p className="mt-1 text-sm leading-[1.5] text-graphite">{text}</p>
+              <ul className="mt-4 space-y-1.5 text-sm leading-[1.5] text-graphite">
                 {features.map((f) => (
                   <li key={f}>· {f}</li>
                 ))}
@@ -67,10 +52,10 @@ export default function Tariffs() {
               <a
                 href="#calc"
                 className={cn(
-                  "mt-6 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-semibold transition-colors",
+                  "mt-6 inline-flex items-center justify-center gap-2 px-[15px] py-3 text-sm transition-colors",
                   highlight
-                    ? "bg-sky-500 text-white hover:bg-sky-600"
-                    : "border border-sky-200 bg-white text-sky-700 hover:bg-sky-50",
+                    ? "bg-cobalt-action text-pure-white hover:bg-[#005fd4]"
+                    : "border border-graphite text-graphite hover:bg-shadow-whisper",
                 )}
               >
                 Рассчитать

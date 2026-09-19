@@ -1,66 +1,65 @@
-import { Sparkles } from "lucide-react";
 import { PHONE, PHONE_HREF } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="border-t border-hairline-gray bg-pure-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
-          <p className="flex items-center gap-2 font-bold text-white">
-            <span className="grid size-9 place-items-center rounded-2xl bg-sky-500 text-white">
-              <Sparkles className="size-5" aria-hidden />
+          <p className="flex items-center gap-2 text-ink-black">
+            <span className="grid size-6 place-items-center bg-pure-black text-sm text-pure-white">
+              Ч
             </span>
             ЧистоДом
           </p>
-          <p className="mt-3 max-w-xs text-sm text-slate-400">
+          <p className="mt-3 max-w-xs text-sm leading-[1.5] text-graphite">
             Профессиональная уборка квартир и офисов. Эко-средства, проверенные клинеры,
             гарантия 24 часа.
           </p>
         </div>
         <div>
-          <p className="text-sm font-bold uppercase tracking-wide text-slate-400">Контакты</p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <p className="text-[10px] uppercase tracking-[0.08em] text-graphite">Контакты</p>
+          <ul className="mt-3 space-y-2 text-sm text-graphite">
             <li>
-              <a href={PHONE_HREF} className="hover:text-white">
+              <a href={PHONE_HREF} className="hover:text-ink-black">
                 {PHONE}
               </a>
             </li>
             <li>
-              <a href="mailto:info@chistodom.example" className="hover:text-white">
+              <a href="mailto:info@chistodom.example" className="hover:text-ink-black">
                 info@chistodom.example
               </a>
             </li>
-            <li className="text-slate-400">Москва, ул. Примерная, 1</li>
+            <li>Москва, ул. Примерная, 1</li>
           </ul>
         </div>
         <div>
-          <p className="text-sm font-bold uppercase tracking-wide text-slate-400">Навигация</p>
-          <ul className="mt-3 space-y-2 text-sm">
+          <p className="text-[10px] uppercase tracking-[0.08em] text-graphite">Навигация</p>
+          <ul className="mt-3 space-y-2 text-sm text-graphite">
             <li>
-              <a href="#services" className="hover:text-white">
+              <a href="#services" className="hover:text-ink-black">
                 Услуги
               </a>
             </li>
             <li>
-              <a href="#calc" className="hover:text-white">
+              <a href="#calc" className="hover:text-ink-black">
                 Калькулятор
               </a>
             </li>
             <li>
-              <a href="#reviews" className="hover:text-white">
+              <a href="#reviews" className="hover:text-ink-black">
                 Отзывы
               </a>
             </li>
             <li>
-              <a href="#faq" className="hover:text-white">
+              <a href="#faq" className="hover:text-ink-black">
                 FAQ
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-sm text-slate-400 sm:px-6">
+      <div className="border-t border-hairline-gray">
+        <p className="mx-auto max-w-6xl px-4 py-5 text-sm text-graphite sm:px-6">
           © ЧистоДом, 2026. Все права защищены.
         </p>
       </div>

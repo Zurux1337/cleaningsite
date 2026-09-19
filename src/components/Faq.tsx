@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 const FAQ = [
   {
     q: "Какие средства вы используете? Это безопасно?",
@@ -29,23 +27,19 @@ const FAQ = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 bg-white">
+    <section id="faq" className="scroll-mt-20 bg-pure-white">
       <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-semibold text-sky-600">FAQ</p>
-        <h2 className="mt-2 text-3xl font-extrabold text-slate-900">Частые вопросы</h2>
-        <div className="mt-8 space-y-3">
+        <p className="text-[12px] uppercase tracking-[0.08em] text-graphite">FAQ</p>
+        <h2 className="mt-2 text-[50px] leading-[1] tracking-[-0.045em] text-ink-black">
+          Частые вопросы
+        </h2>
+        <div className="mt-8 border-t border-hairline-gray">
           {FAQ.map(({ q, a }) => (
-            <details
-              key={q}
-              className={cn(
-                "group rounded-3xl border border-sky-100 bg-sky-50/60 px-5 py-4",
-                "open:bg-white open:shadow-sm",
-              )}
-            >
-              <summary className="cursor-pointer list-none font-bold text-slate-900 marker:hidden [&::-webkit-details-marker]:hidden">
+            <details key={q} className="group border-b border-hairline-gray py-4">
+              <summary className="cursor-pointer list-none text-ink-black marker:hidden [&::-webkit-details-marker]:hidden">
                 {q}
               </summary>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{a}</p>
+              <p className="mt-2 text-sm leading-[1.5] text-graphite">{a}</p>
             </details>
           ))}
         </div>

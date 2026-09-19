@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin", "cyrillic"], weight: "400" });
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className="antialiased">
+      <body className={`${inter.className} antialiased`}>
         {children}
         <Toaster richColors position="top-center" />
       </body>

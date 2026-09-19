@@ -9,8 +9,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  default: "bg-sky-500 text-white hover:bg-sky-600",
-  outline: "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50",
+  default: "bg-cobalt-action text-white hover:bg-[#005fd4]",
+  outline:
+    "border border-graphite bg-transparent text-graphite hover:bg-shadow-whisper",
 };
 
 export function Button({ variant = "default", className, type = "button", ...rest }: ButtonProps) {
@@ -18,7 +19,7 @@ export function Button({ variant = "default", className, type = "button", ...res
     <button
       type={type}
       className={cn(
-        "rounded-2xl px-5 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+        "rounded-none px-[15px] py-3 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-50",
         VARIANTS[variant],
         className,
       )}
