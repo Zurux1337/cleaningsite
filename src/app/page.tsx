@@ -1,5 +1,5 @@
 import BeforeAfter from "@/components/BeforeAfter";
-import Calculator from "@/components/Calculator";
+import BookingFlow from "@/components/BookingFlow";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
@@ -22,7 +22,7 @@ export default function Home() {
         <Services />
         <div id="calc">
           <div id="calc-slot">
-            <Calculator />
+            <BookingFlow />
           </div>
         </div>
         <Tariffs />
