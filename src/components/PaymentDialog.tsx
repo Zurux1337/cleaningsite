@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 
 import type { CalculatorDraft } from "@/components/Calculator";
@@ -22,20 +22,19 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
   const [exp, setExp] = useState("");
   const [cvc, setCvc] = useState("");
 
-  useEffect(() => {
-    if (!open) {
-      setBusy(false);
-      busyRef.current = false;
-    }
-  }, [open ]);
-
-  useEffect(() => {
+  function clearCardFields() {
     setCard("");
     setExp("");
     setCvc("");
-  }, [draft]);
+  }
 
   if (!open || !draft) return null;
+
+  function handleClose() {
+    if (busyRef.current) return;
+    clearCardFields();
+    onClose();
+  }
 
   const totalStr = `${draft.total.toLocaleString("ru-RU")} ₽`;
   const isCard = draft.payMethod === "card";
@@ -60,6 +59,7 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
         status: d.payMethod === "card" ? "paid" : "new",
       });
       onSuccess(order);
+      clearCardFields();
     } catch {
       toast.error("Не удалось сохранить заказ, попробуйте ещё раз");
     } finally {
@@ -74,7 +74,7 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
       aria-modal="true"
       aria-label="Оплата"
       className="fixed inset-0 z-50 grid place-items-center bg-slate-900/50 p-4"
-      onClick={onClose}
+      onClick={handleClose}
     >
       <div
         className="w-full max-w-md rounded-3xl bg-white p-6 shadow-xl"
@@ -136,7 +136,7 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
         )}
 
         <div className="mt-6 flex gap-3">
-          <Button variant="outline" onClick={onClose} disabled={busy}>
+          <Button variant="outline" onClick={handleClose} disabled={busy}>
             Отмена
           </Button>
           <Button onClick={handleSubmit} disabled={busy} className="flex-1">

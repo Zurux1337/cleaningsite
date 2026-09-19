@@ -422,8 +422,8 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
               </div>
               {addons.map((key) => (
                 <div key={key} className="flex justify-between">
-                  <span className="text-slate-600">{ADDONS[key].label}</span>
-                  <span className="font-semibold text-slate-900">+{fmt(ADDONS[key].price)}</span>
+                  <span className="text-slate-600">{ADDONS[key]?.label ?? key}</span>
+                  <span className="font-semibold text-slate-900">+{fmt(ADDONS[key]?.price ?? 0)}</span>
                 </div>
               ))}
               {express && (

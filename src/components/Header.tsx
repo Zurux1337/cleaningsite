@@ -35,7 +35,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={PHONE_HREF}
-            className="hidden text-sm font-semibold text-slate-800 hover:text-sky-600 lg:block"
+            className="hidden text-sm font-semibold text-slate-800 hover:text-sky-600 sm:block"
           >
             {PHONE}
           </a>

@@ -38,7 +38,6 @@ export default function Hero() {
               Услуги
             </a>
           </div>
-          <p className="mt-6 text-sm text-slate-500">4.9 ★ · 1500+ уборок · Гарантия 24ч</p>
         </div>
         <aside
           className={cn(
