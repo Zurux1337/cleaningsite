@@ -31,26 +31,23 @@ const PLANS = [
 
 export default function Tariffs() {
   return (
-    <section id="tariffs" className="scroll-mt-20 bg-oat-canvas">
+    <section id="tariffs" className="scroll-mt-20 bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-slate">Пакеты</p>
-        <h2 className="mt-2 text-[40px] font-bold italic leading-[1.15] text-ink-black">
+        <p className="text-sm font-medium text-(--color-eyebrow)">Пакеты</p>
+        <h2 className="t-h2 mt-2">
           Тарифы под вашу задачу
         </h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {PLANS.map(({ icon: Icon, name, price, text, features, highlight }) => (
             <article
               key={name}
-              className={cn(
-                "flex flex-col rounded-[44px] bg-paper-white p-6 shadow-xl",
-                highlight && "border border-warm-mist",
-              )}
+              className="flex flex-col rounded-(--radius-card) bg-(--surface-card) p-6 shadow-(--shadow-card)"
             >
-              <Icon className="size-5 text-stone" strokeWidth={1.75} aria-hidden />
-              <h3 className="mt-4 text-[26px] font-semibold leading-[1.23] text-soft-ink">{name}</h3>
-              <p className="mt-1 text-base font-semibold text-hot-magenta">{price}</p>
-              <p className="mt-1 text-base leading-[1.5] text-slate">{text}</p>
-              <ul className="mt-4 space-y-1.5 text-base leading-[1.5] text-slate">
+              <Icon className="size-5 text-(--color-muted)" strokeWidth={1.75} aria-hidden />
+              <h3 className="t-h3 mt-4">{name}</h3>
+              <p className="mt-1 text-base font-semibold text-(--color-accent)">{price}</p>
+              <p className="mt-1 text-base leading-[1.5] text-(--color-body)">{text}</p>
+              <ul className="mt-4 space-y-1.5 text-base leading-[1.5] text-(--color-body)">
                 {features.map((f) => (
                   <li key={f}>· {f}</li>
                 ))}
@@ -58,10 +55,10 @@ export default function Tariffs() {
               <a
                 href="#calc"
                 className={cn(
-                  "mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-base font-semibold transition-colors",
+                  "mt-6 inline-flex items-center justify-center gap-2 rounded-(--radius-btn) px-6 py-3.5 text-base font-semibold transition-colors",
                   highlight
-                    ? "bg-hot-magenta text-paper-white hover:bg-[#e0257f]"
-                    : "border border-charcoal text-soft-ink hover:bg-warm-mist",
+                    ? "bg-(--color-accent) text-(--color-on-accent) hover:bg-(--color-accent-hover)"
+                    : "border border-(--color-strong) text-(--color-ink) hover:bg-(--color-outline-hover)",
                 )}
               >
                 Рассчитать

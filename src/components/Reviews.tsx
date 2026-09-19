@@ -35,24 +35,24 @@ const REVIEWS = [
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="scroll-mt-20 bg-oat-canvas">
+    <section id="reviews" className="scroll-mt-20 bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-slate">Отзывы</p>
-        <h2 className="mt-2 text-[40px] font-bold italic leading-[1.15] text-ink-black">
+        <p className="text-sm font-medium text-(--color-eyebrow)">Отзывы</p>
+        <h2 className="t-h2 mt-2">
           4.9 — 1500+ уборок
         </h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {REVIEWS.map(({ name, text, service }) => (
-            <figure key={name} className="rounded-[44px] bg-paper-white p-6 shadow-xl">
+            <figure key={name} className="rounded-(--radius-card) bg-(--surface-card) p-6 shadow-(--shadow-card)">
               <div className="flex gap-1" aria-label="Оценка 5 из 5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-stone text-stone" aria-hidden />
+                  <Star key={i} className="size-4 fill-(--color-muted) text-(--color-muted)" aria-hidden />
                 ))}
               </div>
-              <blockquote className="mt-3 text-base leading-[1.5] text-slate">{text}</blockquote>
+              <blockquote className="mt-3 text-base leading-[1.5] text-(--color-body)">{text}</blockquote>
               <figcaption className="mt-4 flex items-center justify-between gap-2 text-sm">
-                <span className="font-semibold text-soft-ink">{name}</span>
-                <span className="rounded-full bg-warm-mist px-2.5 py-1 text-[13px] font-medium text-charcoal">
+                <span className="font-semibold text-(--color-ink)">{name}</span>
+                <span className="rounded-full bg-(--surface-chip) px-2.5 py-1 text-[13px] font-medium text-(--color-chip-ink)">
                   {service}
                 </span>
               </figcaption>

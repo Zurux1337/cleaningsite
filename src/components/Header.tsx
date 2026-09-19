@@ -1,6 +1,8 @@
 "use client";
 
+import { Palette } from "lucide-react";
 import { PHONE, PHONE_HREF } from "@/lib/site";
+import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -15,15 +17,16 @@ export function openCabinet() {
 }
 
 export default function Header() {
+  const { theme, toggle } = useTheme();
   return (
-    <header className="sticky top-0 z-40 bg-oat-canvas/90 backdrop-blur">
+    <header className="sticky top-0 z-40 bg-(--surface-canvas)/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="text-xl font-bold italic text-hot-magenta">
+        <a href="#top" className="t-logo text-xl">
           ЧистоДом
         </a>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-soft-ink md:flex" aria-label="Основная навигация">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-(--color-ink) md:flex" aria-label="Основная навигация">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} className="transition-colors hover:text-hot-magenta">
+            <a key={item.href} href={item.href} className="transition-colors hover:text-(--color-link)">
               {item.label}
             </a>
           ))}
@@ -31,16 +34,30 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={PHONE_HREF}
-            className="hidden text-sm font-medium text-soft-ink hover:text-hot-magenta sm:block"
+            className="hidden text-sm font-medium text-(--color-ink) hover:text-(--color-link) sm:block"
           >
             {PHONE}
           </a>
           <button
             type="button"
+            onClick={toggle}
+            aria-label="Сменить тему оформления"
+            suppressHydrationWarning
+            title={theme === "playful" ? "Переключить на Steep" : "Переключить на Playful"}
+            className={cn(
+              "inline-flex items-center gap-1.5 rounded-(--radius-btn) border border-(--color-line) bg-transparent px-3 py-2 text-sm font-medium text-(--color-ink)",
+              "transition-colors hover:bg-(--color-outline-hover)",
+            )}
+          >
+            <Palette className="size-4" aria-hidden />
+            {theme === "playful" ? "Steep" : "Playful"}
+          </button>
+          <button
+            type="button"
             onClick={openCabinet}
             className={cn(
-              "rounded-full border border-charcoal bg-transparent px-4 py-2 text-sm font-medium text-soft-ink",
-              "transition-colors hover:bg-warm-mist",
+              "rounded-(--radius-btn) border border-(--color-strong) bg-transparent px-4 py-2 text-sm font-medium text-(--color-ink)",
+              "transition-colors hover:bg-(--color-outline-hover)",
             )}
           >
             Кабинет
@@ -48,8 +65,8 @@ export default function Header() {
           <a
             href="#calc"
             className={cn(
-              "rounded-full bg-hot-magenta px-4 py-2 text-sm font-semibold text-paper-white",
-              "transition-colors hover:bg-[#e0257f]",
+              "rounded-(--radius-btn) bg-(--color-accent) px-4 py-2 text-sm font-semibold text-(--color-on-accent)",
+              "transition-colors hover:bg-(--color-accent-hover)",
             )}
           >
             Заказать

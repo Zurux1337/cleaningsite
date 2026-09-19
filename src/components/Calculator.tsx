@@ -64,8 +64,8 @@ function fmt(n: number): string {
   return `${n.toLocaleString("ru-RU")} ₽`;
 }
 
-const OPTION_IDLE = "border border-warm-mist bg-oat-canvas text-slate hover:border-charcoal";
-const OPTION_ACTIVE = "border border-ink-black bg-paper-white text-soft-ink";
+const OPTION_IDLE = "border border-(--color-line) bg-(--surface-input) text-(--color-body) hover:border-(--color-strong)";
+const OPTION_ACTIVE = "border border-(--color-strong) bg-(--surface-panel) text-(--color-ink)";
 
 export default function Calculator({ onPaymentRequest }: CalculatorProps) {
   const [step, setStep] = useState(1);
@@ -152,20 +152,20 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
   const rate = BASE_PER_M2[cleaningType];
 
   return (
-    <section aria-label="Калькулятор" className="bg-oat-canvas">
+    <section aria-label="Калькулятор" className="bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-slate">Калькулятор</p>
-        <h2 className="mt-2 text-[40px] font-bold italic leading-[1.15] text-ink-black">
+        <p className="text-sm font-medium text-(--color-eyebrow)">Калькулятор</p>
+        <h2 className="t-h2 mt-2">
           Рассчитайте стоимость за 4 шага
         </h2>
-        <p className="mt-2 text-sm font-medium text-slate">Шаг {step} из 4</p>
+        <p className="mt-2 text-sm font-medium text-(--color-body)">Шаг {step} из 4</p>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_360px]">
-          <div className="rounded-[44px] bg-paper-white p-6 shadow-xl sm:p-8">
+          <div className="rounded-(--radius-card) bg-(--surface-panel) p-6 shadow-(--shadow-pop) sm:p-8">
             {step === 1 && (
               <div>
-                <h3 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Тип помещения и уборки</h3>
-                <p className="mt-1 text-base text-slate">Помещение</p>
+                <h3 className="t-h3">Тип помещения и уборки</h3>
+                <p className="mt-1 text-base text-(--color-body)">Помещение</p>
                 <div className="mt-3 grid gap-3 sm:grid-cols-3">
                   {PROP_TYPES.map((p) => (
                     <button
@@ -174,7 +174,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                       onClick={() => setPropType(p.key)}
                       aria-pressed={propType === p.key}
                       className={cn(
-                        "rounded-full px-4 py-3 text-base font-medium transition-colors",
+                        "rounded-(--radius-btn) px-4 py-3 text-base font-medium transition-colors",
                         propType === p.key ? OPTION_ACTIVE : OPTION_IDLE,
                       )}
                     >
@@ -182,7 +182,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                     </button>
                   ))}
                 </div>
-                <p className="mt-6 text-base text-slate">Тип уборки</p>
+                <p className="mt-6 text-base text-(--color-body)">Тип уборки</p>
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   {CLEANING_TYPES.map((c) => (
                     <button
@@ -191,12 +191,12 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                       onClick={() => setCleaningType(c.key)}
                       aria-pressed={cleaningType === c.key}
                       className={cn(
-                        "rounded-[16px] px-4 py-3 text-left transition-colors",
+                        "rounded-(--radius-inner) px-4 py-3 text-left transition-colors",
                         cleaningType === c.key ? OPTION_ACTIVE : OPTION_IDLE,
                       )}
                     >
-                      <span className="block text-base font-semibold text-soft-ink">{c.title}</span>
-                      <span className="mt-1 block text-sm text-slate">
+                      <span className="block text-base font-semibold text-(--color-ink)">{c.title}</span>
+                      <span className="mt-1 block text-sm text-(--color-body)">
                         {BASE_PER_M2[c.key]} ₽/м²
                       </span>
                     </button>
@@ -207,7 +207,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
 
             {step === 2 && (
               <div>
-                <h3 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Площадь и опции</h3>
+                <h3 className="t-h3">Площадь и опции</h3>
                 <div className="mt-4">
                   <Input
                     id="calc-area"
@@ -225,34 +225,34 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                     max={MAX_AREA}
                     value={Number.isFinite(area) ? Math.min(MAX_AREA, Math.max(MIN_AREA, area)) : MIN_AREA}
                     onChange={(e) => setArea(Number(e.target.value))}
-                    className="mt-3 w-full accent-hot-magenta"
+                    className="mt-3 w-full accent-(--color-accent)"
                   />
                   {!areaValid && (
-                    <p className="mt-1 text-sm text-slate">15–500 м²</p>
+                    <p className="mt-1 text-sm text-(--color-body)">15–500 м²</p>
                   )}
                 </div>
-                <p className="mt-6 text-base font-medium text-soft-ink">Дополнительно</p>
+                <p className="mt-6 text-base font-medium text-(--color-ink)">Дополнительно</p>
                 <div className="mt-3 space-y-2">
                   {Object.entries(ADDONS).map(([key, a]) => (
-                    <label key={key} className="flex cursor-pointer items-center gap-3 text-base text-slate">
+                    <label key={key} className="flex cursor-pointer items-center gap-3 text-base text-(--color-body)">
                       <input
                         type="checkbox"
                         checked={addons.includes(key)}
                         onChange={() => toggleAddon(key)}
-                        className="size-4 accent-hot-magenta"
+                        className="size-4 accent-(--color-accent)"
                       />
                       <span>
-                        {a.label} <span className="text-stone">+{fmt(a.price)}</span>
+                        {a.label} <span className="text-(--color-muted)">+{fmt(a.price)}</span>
                       </span>
                     </label>
                   ))}
                 </div>
-                <label className="mt-4 flex cursor-pointer items-center gap-3 text-base font-medium text-soft-ink">
+                <label className="mt-4 flex cursor-pointer items-center gap-3 text-base font-medium text-(--color-ink)">
                   <input
                     type="checkbox"
                     checked={express}
                     onChange={(e) => setExpress(e.target.checked)}
-                    className="size-4 accent-hot-magenta"
+                    className="size-4 accent-(--color-accent)"
                   />
                   Экспресс-уборка +30%
                 </label>
@@ -261,7 +261,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
 
             {step === 3 && (
               <div>
-                <h3 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Дата и адрес</h3>
+                <h3 className="t-h3">Дата и адрес</h3>
                 <div className="mt-4">
                   <Input
                     id="calc-date"
@@ -272,7 +272,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                     onChange={(e) => handleDateChange(e.target.value)}
                   />
                 </div>
-                <p className="mt-4 text-base font-medium text-soft-ink">Время</p>
+                <p className="mt-4 text-base font-medium text-(--color-ink)">Время</p>
                 <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
                   {SLOTS.map((s) => (
                     <button
@@ -281,7 +281,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                       onClick={() => setSlot(s)}
                       aria-pressed={slot === s}
                       className={cn(
-                        "rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                        "rounded-(--radius-btn) px-3 py-2 text-sm font-medium transition-colors",
                         slot === s ? OPTION_ACTIVE : OPTION_IDLE,
                       )}
                     >
@@ -317,7 +317,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
 
             {step === 4 && (
               <div>
-                <h3 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Контакты и оплата</h3>
+                <h3 className="t-h3">Контакты и оплата</h3>
                 <div className="mt-4 space-y-4">
                   <Input
                     id="calc-name"
@@ -336,7 +336,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                     onBlur={(e) => setPhone(normalizePhone(e.target.value))}
                   />
                   <label htmlFor="calc-comment" className="block">
-                    <span className="mb-1 block text-base font-medium text-soft-ink">
+                    <span className="mb-1 block text-base font-medium text-(--color-ink)">
                       Комментарий (необязательно)
                     </span>
                     <textarea
@@ -344,18 +344,18 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                       rows={3}
                       value={comment}
                       onChange={(e) => setComment(e.target.value)}
-                      className="w-full rounded-[16px] border border-charcoal bg-oat-canvas px-4 py-2.5 text-base text-soft-ink placeholder:text-stone focus:border-hot-magenta focus:outline-none"
+                      className="w-full rounded-(--radius-inner) border border-(--color-input-line) bg-(--surface-input) px-4 py-2.5 text-base text-(--color-ink) placeholder:text-(--color-muted) focus:border-(--color-accent) focus:outline-none"
                     />
                   </label>
                 </div>
-                <p className="mt-4 text-base font-medium text-soft-ink">Способ оплаты</p>
+                <p className="mt-4 text-base font-medium text-(--color-ink)">Способ оплаты</p>
                 <div className="mt-2 grid gap-2 sm:grid-cols-2">
                   <button
                     type="button"
                     onClick={() => setPayMethod("card")}
                     aria-pressed={payMethod === "card"}
                     className={cn(
-                      "rounded-full px-4 py-2.5 text-base font-medium transition-colors",
+                      "rounded-(--radius-btn) px-4 py-2.5 text-base font-medium transition-colors",
                       payMethod === "card" ? OPTION_ACTIVE : OPTION_IDLE,
                     )}
                   >
@@ -366,19 +366,19 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                     onClick={() => setPayMethod("cash")}
                     aria-pressed={payMethod === "cash"}
                     className={cn(
-                      "rounded-full px-4 py-2.5 text-base font-medium transition-colors",
+                      "rounded-(--radius-btn) px-4 py-2.5 text-base font-medium transition-colors",
                       payMethod === "cash" ? OPTION_ACTIVE : OPTION_IDLE,
                     )}
                   >
                     Наличными
                   </button>
                 </div>
-                <label className="mt-4 flex cursor-pointer items-start gap-3 text-base text-slate">
+                <label className="mt-4 flex cursor-pointer items-start gap-3 text-base text-(--color-body)">
                   <input
                     type="checkbox"
                     checked={agree}
                     onChange={(e) => setAgree(e.target.checked)}
-                    className="mt-0.5 size-4 accent-hot-magenta"
+                    className="mt-0.5 size-4 accent-(--color-accent)"
                   />
                   Согласен с обработкой персональных данных
                 </label>
@@ -405,29 +405,29 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
           </div>
 
           <Card className="h-fit lg:sticky lg:top-20">
-            <h3 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Ваш расчёт</h3>
+            <h3 className="t-h3">Ваш расчёт</h3>
             <CardContent>
               <div className="flex justify-between">
-                <span className="text-slate">
+                <span className="text-(--color-body)">
                   {area} м² × {rate} ₽
                 </span>
-                <span className="font-semibold text-soft-ink">{fmt(area * rate)}</span>
+                <span className="font-semibold text-(--color-ink)">{fmt(area * rate)}</span>
               </div>
               {addons.map((key) => (
                 <div key={key} className="flex justify-between">
-                  <span className="text-slate">{ADDONS[key]?.label ?? key}</span>
-                  <span className="font-semibold text-soft-ink">+{fmt(ADDONS[key]?.price ?? 0)}</span>
+                  <span className="text-(--color-body)">{ADDONS[key]?.label ?? key}</span>
+                  <span className="font-semibold text-(--color-ink)">+{fmt(ADDONS[key]?.price ?? 0)}</span>
                 </div>
               ))}
               {express && (
                 <div className="flex justify-between">
-                  <span className="text-slate">Экспресс +30%</span>
-                  <span className="font-semibold text-soft-ink">+{fmt(total - breakdown.subtotal)}</span>
+                  <span className="text-(--color-body)">Экспресс +30%</span>
+                  <span className="font-semibold text-(--color-ink)">+{fmt(total - breakdown.subtotal)}</span>
                 </div>
               )}
-              <div className="flex justify-between border-t border-warm-mist pt-3 text-lg">
-                <span className="font-semibold text-soft-ink">Итого</span>
-                <span className="font-bold text-soft-ink">{fmt(total)}</span>
+              <div className="flex justify-between border-t border-(--color-line) pt-3 text-lg">
+                <span className="font-semibold text-(--color-ink)">Итого</span>
+                <span className="font-bold text-(--color-ink)">{fmt(total)}</span>
               </div>
             </CardContent>
           </Card>

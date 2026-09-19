@@ -79,13 +79,13 @@ function choose(preset: PresetType) {
 
 export default function Services() {
   return (
-    <section id="services" className="scroll-mt-20 bg-oat-canvas">
+    <section id="services" className="scroll-mt-20 bg-(--surface-canvas)">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-sm font-medium text-slate">Услуги ЧистоДом</p>
-        <h2 className="mt-2 text-[40px] font-bold italic leading-[1.15] text-ink-black">
+        <p className="text-sm font-medium text-(--color-eyebrow)">Услуги ЧистоДом</p>
+        <h2 className="t-h2 mt-2">
           Что мы убираем
         </h2>
-        <p className="mt-3 max-w-2xl text-lg leading-[1.5] text-slate">
+        <p className="mt-3 max-w-2xl text-lg leading-[1.5] text-(--color-body)">
           Фиксированные цены, эко-средства включены. Выберите услугу — калькулятор
           подставит нужный тип уборки.
         </p>
@@ -93,24 +93,24 @@ export default function Services() {
           {SERVICES.map(({ title, tag, bullets, price, preset }) => (
             <article
               key={title}
-              className="flex flex-col rounded-[44px] bg-paper-white p-6 shadow-xl"
+              className="flex flex-col rounded-(--radius-card) bg-(--surface-card) p-6 shadow-(--shadow-card)"
             >
-              <p className="inline-block self-start rounded-full bg-warm-mist px-3 py-1 text-[13px] font-medium text-charcoal">
+              <p className="inline-block self-start rounded-full bg-(--surface-chip) px-3 py-1 text-[13px] font-medium text-(--color-chip-ink)">
                 {tag}
               </p>
-              <h3 className="mt-4 text-[26px] font-semibold leading-[1.23] text-soft-ink">{title}</h3>
-              <ul className="mt-3 space-y-1.5 text-base leading-[1.5] text-slate">
+              <h3 className="t-h3 mt-4">{title}</h3>
+              <ul className="mt-3 space-y-1.5 text-base leading-[1.5] text-(--color-body)">
                 {bullets.map((b) => (
                   <li key={b}>· {b}</li>
                 ))}
               </ul>
-              <p className="mt-4 text-[18px] font-semibold text-soft-ink">{price}</p>
+              <p className="mt-4 text-[18px] font-semibold text-(--color-ink)">{price}</p>
               <button
                 type="button"
                 onClick={() => choose(preset)}
                 className={cn(
-                  "mt-4 rounded-full bg-hot-magenta px-6 py-3.5 text-base font-semibold text-paper-white",
-                  "transition-colors hover:bg-[#e0257f]",
+                  "mt-4 rounded-(--radius-btn) bg-(--color-accent) px-6 py-3.5 text-base font-semibold text-(--color-on-accent)",
+                  "transition-colors hover:bg-(--color-accent-hover)",
                 )}
               >
                 Выбрать

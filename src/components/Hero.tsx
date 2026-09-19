@@ -11,12 +11,12 @@ const TICKER = [
 export default function Hero() {
   return (
     <>
-      <section id="top" className="bg-oat-canvas">
+      <section id="top" className="bg-(--surface-canvas)">
         <div className="mx-auto max-w-6xl px-4 py-20 text-center sm:px-6 md:py-28">
-          <h1 className="mx-auto max-w-4xl text-[70px] font-black italic leading-[1] tracking-[-0.002em] text-ink-black md:text-[79px]">
+          <h1 className="t-display mx-auto max-w-4xl">
             Уборка без стресса за 60 секунд
           </h1>
-          <p className="mx-auto mt-6 max-w-[560px] text-base leading-[1.5] text-slate md:text-lg">
+          <p className="mx-auto mt-6 max-w-[560px] text-base leading-[1.5] text-(--color-body) md:text-lg">
             Профессиональный клининг квартир и офисов: рассчитайте стоимость онлайн и закажите
             уборку в удобный слот — сегодня или завтра.
           </p>
@@ -24,8 +24,8 @@ export default function Hero() {
             <a
               href="#calc"
               className={cn(
-                "inline-flex items-center gap-2 rounded-full bg-hot-magenta px-6 py-3.5 text-base font-semibold text-paper-white",
-                "transition-colors hover:bg-[#e0257f]",
+                "inline-flex items-center gap-2 rounded-(--radius-btn) bg-(--color-accent) px-6 py-3.5 text-base font-semibold text-(--color-on-accent)",
+                "transition-colors hover:bg-(--color-accent-hover)",
               )}
             >
               Рассчитать стоимость
@@ -34,8 +34,8 @@ export default function Hero() {
             <a
               href="#services"
               className={cn(
-                "inline-flex items-center rounded-full border border-charcoal px-6 py-3.5",
-                "text-base font-medium text-soft-ink transition-colors hover:bg-warm-mist",
+                "inline-flex items-center rounded-(--radius-btn) border border-(--color-strong) px-6 py-3.5",
+                "text-base font-medium text-(--color-ink) transition-colors hover:bg-(--color-outline-hover)",
               )}
             >
               Услуги
@@ -43,11 +43,11 @@ export default function Hero() {
           </div>
         </div>
       </section>
-      <div className="bg-ink-black" aria-label="ЧистоДом в цифрах">
+      <div className="bg-(--surface-band)" aria-label="ЧистоДом в цифрах">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 py-3 sm:px-6">
           {TICKER.map(({ label, value }) => (
-            <p key={label} className="text-sm font-medium text-paper-white">
-              <span className="mr-2 text-[12px] uppercase tracking-[0.08em] text-paper-white/60">
+            <p key={label} className="text-sm font-medium text-(--color-on-band)">
+              <span className="mr-2 text-[12px] uppercase tracking-[0.08em] opacity-60">
                 {label}
               </span>
               {value}
