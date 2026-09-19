@@ -95,6 +95,9 @@ export default function CabinetDialog() {
                 <p className="mt-1 text-sm text-slate-600">
                   {o.date} · {o.slot} · {o.cleaningType} · {o.area} м²
                 </p>
+                {(o.address ?? "") !== "" && (
+                  <p className="mt-1 text-sm text-slate-500">{o.address}</p>
+                )}
                 <div className="mt-1 flex items-center justify-between">
                   <span className="text-sm font-bold text-slate-900">
                     {o.total.toLocaleString("ru-RU")} ₽

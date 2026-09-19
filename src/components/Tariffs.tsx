@@ -1,10 +1,12 @@
 import { ArrowRight, Zap, Star, Crown } from "lucide-react";
+import { BASE_PER_M2 } from "@/data/prices";
 import { cn } from "@/lib/utils";
 
 const PLANS = [
   {
     icon: Zap,
     name: "Экспресс",
+    price: `от ${BASE_PER_M2.support.toLocaleString("ru-RU")} ₽/м²`,
     text: "Быстро освежить квартиру перед гостями или после отъезда.",
     features: ["Комнаты и санузел", "Пыль и полы", "Зеркала и мусор"],
     highlight: false,
@@ -12,6 +14,7 @@ const PLANS = [
   {
     icon: Star,
     name: "Стандарт",
+    price: `от ${BASE_PER_M2.general.toLocaleString("ru-RU")} ₽/м²`,
     text: "Наш хит: поддерживающая уборка всей квартиры по чек-листу.",
     features: ["Всё из Экспресса", "Кухня полностью", "Окна внутри"],
     highlight: true,
@@ -19,6 +22,7 @@ const PLANS = [
   {
     icon: Crown,
     name: "Максимум",
+    price: `от ${BASE_PER_M2.renovation.toLocaleString("ru-RU")} ₽/м²`,
     text: "Генеральная уборка: каждый уголок, балкон и техника.",
     features: ["Всё из Стандарта", "Балкон и кладовка", "Холодильник внутри"],
     highlight: false,
@@ -34,7 +38,7 @@ export default function Tariffs() {
           Тарифы под вашу задачу
         </h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {PLANS.map(({ icon: Icon, name, text, features, highlight }) => (
+          {PLANS.map(({ icon: Icon, name, price, text, features, highlight }) => (
             <article
               key={name}
               className={cn(
@@ -53,6 +57,7 @@ export default function Tariffs() {
                 <Icon className="size-5" aria-hidden />
               </span>
               <h3 className="mt-4 text-lg font-bold text-slate-900">{name}</h3>
+              <p className="mt-1 text-sm font-semibold text-sky-600">{price}</p>
               <p className="mt-1 text-sm text-slate-600">{text}</p>
               <ul className="mt-4 space-y-1.5 text-sm text-slate-600">
                 {features.map((f) => (

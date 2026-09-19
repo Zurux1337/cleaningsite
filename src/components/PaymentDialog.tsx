@@ -55,6 +55,11 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
         express: d.express,
         date: d.date,
         slot: d.slot,
+        address: d.address,
+        propType: d.propType,
+        floor: d.floor,
+        intercom: d.intercom,
+        comment: d.comment,
         total: d.total,
         status: d.payMethod === "card" ? "paid" : "new",
       });

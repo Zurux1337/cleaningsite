@@ -16,11 +16,18 @@ export interface Order {
   express: boolean;
   date: string;
   slot: string;
+  address: string;
+  propType: string;
+  floor?: string;
+  intercom?: string;
+  comment?: string;
   total: number;
 }
 
-export type CreateOrderDraft = Omit<Order, "id" | "createdAt" | "status"> & {
+export type CreateOrderDraft = Omit<Order, "id" | "createdAt" | "status" | "address" | "propType"> & {
   status?: Order["status"];
+  address?: string;
+  propType?: string;
 };
 
 let mem: Order[] = [];
@@ -29,15 +36,20 @@ function isBrowser(): boolean {
   return typeof window !== "undefined" && typeof localStorage !== "undefined";
 }
 
+function normalize(o: Order): Order {
+  const p = o as Partial<Order>;
+  return { ...o, address: p.address ?? "", propType: p.propType ?? "" };
+}
+
 function load(): Order[] {
-  if (!isBrowser()) return [...mem];
+  if (!isBrowser()) return mem.map(normalize);
   try {
     const raw = localStorage.getItem(ORDERS_KEY);
     if (!raw) return [];
     const parsed: unknown = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as Order[]) : [];
+    return Array.isArray(parsed) ? (parsed as Order[]).map(normalize) : [];
   } catch {
-    return [...mem];
+    return mem.map(normalize);
   }
 }
 
@@ -65,6 +77,8 @@ export function createOrder(draft: CreateOrderDraft): Order {
   } while (orders.some((o) => o.id === id));
   const order: Order = {
     ...draft,
+    address: draft.address ?? "",
+    propType: draft.propType ?? "",
     id,
     createdAt: new Date().toISOString(),
     status: draft.status ?? "paid",

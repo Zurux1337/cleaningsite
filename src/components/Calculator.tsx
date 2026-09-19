@@ -93,7 +93,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
   }, []);
 
   const minDate = useMemo(() => todayStr(), []);
-  const { total } = useMemo(
+  const { total, breakdown } = useMemo(
     () => calcTotal({ cleaningType, area, addons, express }),
     [cleaningType, area, addons, express],
   );
@@ -217,7 +217,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
                     min={MIN_AREA}
                     max={MAX_AREA}
                     value={Number.isFinite(area) ? area : ""}
-                    onChange={(e) => setArea(Math.floor(Number(e.target.value)))}
+                    onChange={(e) => setArea(e.target.value === "" ? Number.NaN : Math.floor(Number(e.target.value)))}
                   />
                   <input
                     type="range"
@@ -429,6 +429,7 @@ export default function Calculator({ onPaymentRequest }: CalculatorProps) {
               {express && (
                 <div className="flex justify-between">
                   <span className="text-slate-600">Экспресс +30%</span>
+                  <span className="font-semibold text-slate-900">+{fmt(total - breakdown.subtotal)}</span>
                 </div>
               )}
               <div className="flex justify-between border-t border-slate-100 pt-3 text-base">
