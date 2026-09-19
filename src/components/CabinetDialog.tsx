@@ -45,20 +45,20 @@ export default function CabinetDialog() {
       role="dialog"
       aria-modal="true"
       aria-label="Кабинет"
-      className="fixed inset-0 z-50 grid place-items-center bg-pure-black/60 p-4"
+      className="fixed inset-0 z-50 grid place-items-center bg-ink-black/50 p-4"
       onClick={close}
     >
       <div
-        className="max-h-[80vh] w-full max-w-lg overflow-auto border border-hairline-gray bg-pure-white p-6"
+        className="max-h-[80vh] w-full max-w-lg overflow-auto rounded-[44px] bg-paper-white p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-[22px] leading-[1.2] text-ink-black">Мои заказы</h2>
+          <h2 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Мои заказы</h2>
           <button
             type="button"
             onClick={close}
             aria-label="Закрыть"
-            className="px-3 py-1 text-sm text-graphite hover:bg-shadow-whisper"
+            className="rounded-full px-3 py-1 text-sm font-medium text-slate hover:bg-warm-mist"
           >
             ✕
           </button>
@@ -66,11 +66,11 @@ export default function CabinetDialog() {
 
         {orders.length === 0 ? (
           <div className="mt-4 text-center">
-            <p className="text-sm text-graphite">Пока пусто</p>
+            <p className="text-base text-slate">Пока пусто</p>
             <a
               href="#calc"
               onClick={close}
-              className="mt-2 inline-block text-sm text-cobalt-action hover:underline"
+              className="mt-2 inline-block text-base font-medium text-hot-magenta hover:underline"
             >
               Рассчитать стоимость
             </a>
@@ -78,28 +78,28 @@ export default function CabinetDialog() {
         ) : (
           <ul className="mt-4 space-y-3">
             {orders.map((o) => (
-              <li key={o.id} className="border border-hairline-gray p-4">
+              <li key={o.id} className="rounded-[16px] border border-warm-mist bg-oat-canvas p-4">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-ink-black">{o.id}</span>
+                  <span className="font-semibold text-soft-ink">{o.id}</span>
                   <span
                     className={cn(
-                      "text-[10px] uppercase tracking-[0.08em]",
-                      o.status === "paid" && "text-cobalt-action",
-                      o.status === "new" && "text-graphite",
-                      o.status === "cancelled" && "text-graphite/50",
+                      "text-[13px] font-medium uppercase tracking-wide",
+                      o.status === "paid" && "text-hot-magenta",
+                      o.status === "new" && "text-charcoal",
+                      o.status === "cancelled" && "text-stone",
                     )}
                   >
                     {STATUS_LABEL[o.status]}
                   </span>
                 </div>
-                <p className="mt-1 text-sm text-graphite">
+                <p className="mt-1 text-sm text-slate">
                   {o.date} · {o.slot} · {o.cleaningType} · {o.area} м²
                 </p>
                 {(o.address ?? "") !== "" && (
-                  <p className="mt-1 text-sm text-graphite/70">{o.address}</p>
+                  <p className="mt-1 text-sm text-stone">{o.address}</p>
                 )}
                 <div className="mt-1 flex items-center justify-between">
-                  <span className="text-sm text-ink-black">
+                  <span className="text-base font-semibold text-soft-ink">
                     {o.total.toLocaleString("ru-RU")} ₽
                   </span>
                   {o.status !== "cancelled" && (

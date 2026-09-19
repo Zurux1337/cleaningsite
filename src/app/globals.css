@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tech Barcelona tokens (DESIGN 2) — verbatim */
-  --color-cobalt-action: #0075ff;
-  --color-ink-black: #090707;
-  --color-graphite: #212529;
-  --color-pure-white: #ffffff;
-  --color-hairline-gray: #cccccc;
-  --color-pure-black: #000000;
-  --color-shadow-whisper: #eeeeee;
+  /* Playful tokens (DESIGN 5) — verbatim */
+  --color-hot-magenta: #ff2e95;
+  --color-ink-black: #000000;
+  --color-oat-canvas: #f6f2ee;
+  --color-soft-ink: #111111;
+  --color-slate: #0f172a;
+  --color-charcoal: #414040;
+  --color-stone: #848383;
+  --color-paper-white: #ffffff;
+  --color-warm-mist: #e8e5e0;
+  --color-sand: #e2dcd6;
+  --color-driftwood: #c3c1bf;
+  --color-midnight: #202126;
+
+  --shadow-xl: rgba(0, 0, 0, 0.22) 0px 32px 80px 0px, rgba(0, 0, 0, 0.08) 0px 2px 8px 0px;
 }
 
 html {
@@ -16,6 +23,6 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #212529;
+  background-color: #f6f2ee;
+  color: #111111;
 }

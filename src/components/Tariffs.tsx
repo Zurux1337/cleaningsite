@@ -31,20 +31,26 @@ const PLANS = [
 
 export default function Tariffs() {
   return (
-    <section id="tariffs" className="scroll-mt-20 bg-pure-white">
+    <section id="tariffs" className="scroll-mt-20 bg-oat-canvas">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-[12px] uppercase tracking-[0.08em] text-graphite">Пакеты</p>
-        <h2 className="mt-2 text-[50px] leading-[1] tracking-[-0.045em] text-ink-black">
+        <p className="text-sm font-medium text-slate">Пакеты</p>
+        <h2 className="mt-2 text-[40px] font-bold italic leading-[1.15] text-ink-black">
           Тарифы под вашу задачу
         </h2>
-        <div className="mt-8 grid gap-px border border-hairline-gray bg-hairline-gray md:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {PLANS.map(({ icon: Icon, name, price, text, features, highlight }) => (
-            <article key={name} className="flex flex-col bg-pure-white p-6">
-              <Icon className="size-5 text-graphite" aria-hidden />
-              <h3 className="mt-4 text-[22px] leading-[1.2] text-ink-black">{name}</h3>
-              <p className="mt-1 text-sm text-graphite">{price}</p>
-              <p className="mt-1 text-sm leading-[1.5] text-graphite">{text}</p>
-              <ul className="mt-4 space-y-1.5 text-sm leading-[1.5] text-graphite">
+            <article
+              key={name}
+              className={cn(
+                "flex flex-col rounded-[44px] bg-paper-white p-6 shadow-xl",
+                highlight && "border border-warm-mist",
+              )}
+            >
+              <Icon className="size-5 text-stone" strokeWidth={1.75} aria-hidden />
+              <h3 className="mt-4 text-[26px] font-semibold leading-[1.23] text-soft-ink">{name}</h3>
+              <p className="mt-1 text-base font-semibold text-hot-magenta">{price}</p>
+              <p className="mt-1 text-base leading-[1.5] text-slate">{text}</p>
+              <ul className="mt-4 space-y-1.5 text-base leading-[1.5] text-slate">
                 {features.map((f) => (
                   <li key={f}>· {f}</li>
                 ))}
@@ -52,10 +58,10 @@ export default function Tariffs() {
               <a
                 href="#calc"
                 className={cn(
-                  "mt-6 inline-flex items-center justify-center gap-2 px-[15px] py-3 text-sm transition-colors",
+                  "mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-base font-semibold transition-colors",
                   highlight
-                    ? "bg-cobalt-action text-pure-white hover:bg-[#005fd4]"
-                    : "border border-graphite text-graphite hover:bg-shadow-whisper",
+                    ? "bg-hot-magenta text-paper-white hover:bg-[#e0257f]"
+                    : "border border-charcoal text-soft-ink hover:bg-warm-mist",
                 )}
               >
                 Рассчитать

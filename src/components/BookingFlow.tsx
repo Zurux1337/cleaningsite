@@ -33,14 +33,14 @@ export default function BookingFlow() {
           role="dialog"
           aria-modal="true"
           aria-label="Заказ оформлен"
-          className="fixed inset-0 z-50 grid place-items-center bg-pure-black/60 p-4"
+          className="fixed inset-0 z-50 grid place-items-center bg-ink-black/50 p-4"
         >
-          <div className="w-full max-w-md border border-hairline-gray bg-pure-white p-6 text-center">
-            <p className="text-[12px] uppercase tracking-[0.08em] text-cobalt-action">
+          <div className="w-full max-w-md rounded-[44px] bg-paper-white p-6 text-center shadow-xl">
+            <p className="text-sm font-medium uppercase tracking-wide text-hot-magenta">
               Заказ оформлен
             </p>
-            <p className="mt-2 text-[22px] text-ink-black">{order.id}</p>
-            <p className="mt-1 text-sm text-graphite">
+            <p className="mt-2 text-[26px] font-semibold text-soft-ink">{order.id}</p>
+            <p className="mt-1 text-base text-slate">
               {order.total.toLocaleString("ru-RU")} ₽ · {order.date} · {order.slot}
             </p>
             <div className="mt-6 flex gap-3">

@@ -1,3 +1,5 @@
+import { ChevronDown } from "lucide-react";
+
 const FAQ = [
   {
     q: "Какие средства вы используете? Это безопасно?",
@@ -27,19 +29,25 @@ const FAQ = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 bg-pure-white">
-      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 md:py-20">
-        <p className="text-[12px] uppercase tracking-[0.08em] text-graphite">FAQ</p>
-        <h2 className="mt-2 text-[50px] leading-[1] tracking-[-0.045em] text-ink-black">
-          Частые вопросы
-        </h2>
-        <div className="mt-8 border-t border-hairline-gray">
+    <section id="faq" className="scroll-mt-20 bg-oat-canvas">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-[0.8fr_1.2fr] md:py-20">
+        <div>
+          <p className="text-sm font-medium text-slate">Остались вопросы?</p>
+          <h2 className="mt-2 text-[40px] font-bold italic leading-[1.15] text-ink-black">
+            Частые вопросы
+          </h2>
+        </div>
+        <div className="space-y-3">
           {FAQ.map(({ q, a }) => (
-            <details key={q} className="group border-b border-hairline-gray py-4">
-              <summary className="cursor-pointer list-none text-ink-black marker:hidden [&::-webkit-details-marker]:hidden">
+            <details
+              key={q}
+              className="group rounded-[44px] bg-paper-white px-6 py-4 shadow-xl"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[18px] font-semibold italic text-soft-ink marker:hidden [&::-webkit-details-marker]:hidden">
                 {q}
+                <ChevronDown className="size-5 shrink-0 text-stone transition-transform group-open:rotate-180" aria-hidden />
               </summary>
-              <p className="mt-2 text-sm leading-[1.5] text-graphite">{a}</p>
+              <p className="mt-2 text-base leading-[1.5] text-slate">{a}</p>
             </details>
           ))}
         </div>

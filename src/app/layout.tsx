@@ -4,7 +4,10 @@ import { Toaster } from "sonner";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin", "cyrillic"], weight: "400" });
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "900"],
+});
 
 export const metadata: Metadata = {
   title: {

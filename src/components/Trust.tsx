@@ -9,14 +9,14 @@ const ITEMS = [
 
 export default function Trust() {
   return (
-    <section aria-label="Преимущества" className="bg-pure-white">
+    <section aria-label="Преимущества" className="bg-oat-canvas">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         {ITEMS.map(({ icon: Icon, title, text }) => (
           <div key={title} className="flex items-start gap-3">
-            <Icon className="mt-0.5 size-5 shrink-0 text-graphite" aria-hidden />
+            <Icon className="mt-0.5 size-5 shrink-0 text-stone" strokeWidth={1.75} aria-hidden />
             <span>
-              <span className="block text-sm text-ink-black">{title}</span>
-              <span className="mt-0.5 block text-sm text-graphite/70">{text}</span>
+              <span className="block text-base font-medium text-soft-ink">{title}</span>
+              <span className="mt-0.5 block text-sm text-slate">{text}</span>
             </span>
           </div>
         ))}

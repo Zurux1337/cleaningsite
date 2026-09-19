@@ -16,17 +16,14 @@ export function openCabinet() {
 
 export default function Header() {
   return (
-    <header className="bg-pure-white">
-      <div className="mx-auto flex h-12 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2 text-ink-black">
-          <span className="grid size-6 place-items-center bg-pure-black text-sm text-pure-white">
-            Ч
-          </span>
+    <header className="sticky top-0 z-40 bg-oat-canvas/90 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <a href="#top" className="text-xl font-bold italic text-hot-magenta">
           ЧистоДом
         </a>
-        <nav className="hidden items-center gap-6 text-[13px] text-graphite md:flex" aria-label="Основная навигация">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-soft-ink md:flex" aria-label="Основная навигация">
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} className="transition-colors hover:text-ink-black">
+            <a key={item.href} href={item.href} className="transition-colors hover:text-hot-magenta">
               {item.label}
             </a>
           ))}
@@ -34,7 +31,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={PHONE_HREF}
-            className="hidden text-[13px] text-graphite hover:text-ink-black sm:block"
+            className="hidden text-sm font-medium text-soft-ink hover:text-hot-magenta sm:block"
           >
             {PHONE}
           </a>
@@ -42,8 +39,8 @@ export default function Header() {
             type="button"
             onClick={openCabinet}
             className={cn(
-              "border border-graphite bg-transparent px-4 py-2 text-sm text-graphite",
-              "transition-colors hover:bg-shadow-whisper",
+              "rounded-full border border-charcoal bg-transparent px-4 py-2 text-sm font-medium text-soft-ink",
+              "transition-colors hover:bg-warm-mist",
             )}
           >
             Кабинет
@@ -51,8 +48,8 @@ export default function Header() {
           <a
             href="#calc"
             className={cn(
-              "bg-cobalt-action px-4 py-2 text-sm text-pure-white",
-              "transition-colors hover:bg-[#005fd4]",
+              "rounded-full bg-hot-magenta px-4 py-2 text-sm font-semibold text-paper-white",
+              "transition-colors hover:bg-[#e0257f]",
             )}
           >
             Заказать

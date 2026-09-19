@@ -78,32 +78,32 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
       role="dialog"
       aria-modal="true"
       aria-label="Оплата"
-      className="fixed inset-0 z-50 grid place-items-center bg-pure-black/60 p-4"
+      className="fixed inset-0 z-50 grid place-items-center bg-ink-black/50 p-4"
       onClick={handleClose}
     >
       <div
-        className="w-full max-w-md border border-hairline-gray bg-pure-white p-6"
+        className="w-full max-w-md rounded-[44px] bg-paper-white p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-[22px] leading-[1.2] text-ink-black">Оплата</h2>
-        <dl className="mt-3 space-y-1 text-sm text-graphite">
+        <h2 className="text-[26px] font-semibold leading-[1.23] text-soft-ink">Оплата</h2>
+        <dl className="mt-3 space-y-1 text-base text-slate">
           <div className="flex justify-between">
             <dt>Имя</dt>
-            <dd className="text-ink-black">{draft.name}</dd>
+            <dd className="font-medium text-soft-ink">{draft.name}</dd>
           </div>
           <div className="flex justify-between">
             <dt>Дата</dt>
-            <dd className="text-ink-black">
+            <dd className="font-medium text-soft-ink">
               {draft.date} · {draft.slot}
             </dd>
           </div>
           <div className="flex justify-between">
             <dt>Адрес</dt>
-            <dd className="text-ink-black">{draft.address}</dd>
+            <dd className="font-medium text-soft-ink">{draft.address}</dd>
           </div>
-          <div className="flex justify-between border-t border-hairline-gray pt-2">
-            <dt className="text-ink-black">Итого</dt>
-            <dd className="text-ink-black">{totalStr}</dd>
+          <div className="flex justify-between border-t border-warm-mist pt-2">
+            <dt className="font-semibold text-soft-ink">Итого</dt>
+            <dd className="font-bold text-soft-ink">{totalStr}</dd>
           </div>
         </dl>
 
@@ -134,10 +134,10 @@ export default function PaymentDialog({ draft, open, onClose, onSuccess }: Payme
                 onChange={(e) => setCvc(e.target.value)}
               />
             </div>
-            <p className="text-xs text-graphite/70">Тестовые данные, списание не производится.</p>
+            <p className="text-xs text-stone">Тестовые данные, списание не производится.</p>
           </div>
         ) : (
-          <p className="mt-4 text-sm text-graphite">Оплата наличными после выполнения уборки.</p>
+          <p className="mt-4 text-base text-slate">Оплата наличными после выполнения уборки.</p>
         )}
 
         <div className="mt-6 flex gap-3">
