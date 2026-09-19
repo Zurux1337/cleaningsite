@@ -105,3 +105,45 @@ body {
   background-clip: text;
   color: transparent;
 }
+
+/* Dark variant of the a16z theme: deep canvas, white ink, same gradient
+ * signal. Body/muted grays hold 7:1 / 4.5:1 on the dark canvas. */
+:root[data-theme="dark"] {
+  --surface-canvas: #0e0e10;
+  --surface-card: #17171a;
+  --surface-panel: #17171a;
+  --surface-input: #17171a;
+  --surface-chip: transparent;
+  --surface-band: #000000;
+  --surface-contrast: #e5e7eb;
+  --surface-tile: #000000;
+  --surface-header: #0c0c0e;
+
+  --color-ink: #ffffff;
+  --color-body: #b9b8b6;
+  --color-muted: #8a8885;
+  --color-line: #262628;
+  --color-strong: #ffffff;
+  --color-accent: #ffffff;
+  --color-accent-hover: #ffffff;
+  --color-on-accent: #ffffff;
+  --color-link: #ffffff;
+  --color-eyebrow: #ffffff;
+  --color-chip-ink: #ffffff;
+  --color-tile-icon: #ffffff;
+  --color-on-band: #ffffff;
+  --color-on-contrast: #000000;
+  --color-outline-hover: #1e1e21;
+  --color-input-line: #2e2e33;
+}
+
+/* Motion safety: honor users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

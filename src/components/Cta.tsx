@@ -1,4 +1,5 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import HoverArrow from "@/components/HoverArrow";
 import { cn } from "@/lib/utils";
 
 export default function Cta() {
@@ -19,11 +20,11 @@ export default function Cta() {
           href="#calc"
           className={cn(
             "mt-8 inline-flex items-center gap-2 rounded-(--radius-btn) bg-(--surface-accent) px-6 py-2",
-            "text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:brightness-110",
+            "group text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:brightness-110 active:scale-95",
           )}
         >
-          Рассчитать стоимость
-          <ArrowRight className="size-4" aria-hidden />
+            Рассчитать стоимость
+            <HoverArrow />
         </a>
       </div>
     </section>

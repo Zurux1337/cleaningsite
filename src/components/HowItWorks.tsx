@@ -1,4 +1,5 @@
 import { ClipboardCheck, MessagesSquare, Sparkles, ThumbsUp } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const STEPS = [
   {
@@ -31,7 +32,8 @@ export default function HowItWorks() {
         <h2 className="t-h2 mt-2">
           Уборка без стресса в 4 шага
         </h2>
-        <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal className="mt-8">
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map(({ icon: Icon, title, text }, i) => (
             <li key={title} className="rounded-(--radius-card) bg-(--surface-card) p-6 shadow-(--shadow-card)">
               <div className="flex items-center justify-between">
@@ -42,7 +44,8 @@ export default function HowItWorks() {
               <p className="mt-1 text-base leading-[1.5] text-(--color-body)">{text}</p>
             </li>
           ))}
-        </ol>
+          </ol>
+        </Reveal>
       </div>
     </section>
   );

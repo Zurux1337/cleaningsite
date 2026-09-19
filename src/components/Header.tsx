@@ -1,6 +1,8 @@
 "use client";
 
 import { PHONE, PHONE_HREF } from "@/lib/site";
+import { useTheme } from "@/lib/theme";
+import ThemeToggle from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -15,6 +17,7 @@ export function openCabinet() {
 }
 
 export default function Header() {
+  const { theme, toggle } = useTheme();
   return (
     <header className="bg-(--surface-header)">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
@@ -35,6 +38,11 @@ export default function Header() {
           >
             {PHONE}
           </a>
+          <ThemeToggle
+            isDark={theme === "dark"}
+            onToggle={toggle}
+            className="size-9 p-1.5"
+          />
           <button
             type="button"
             onClick={openCabinet}

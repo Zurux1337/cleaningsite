@@ -1,5 +1,9 @@
-import { ArrowRight } from "lucide-react";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
+import HoverArrow from "@/components/HoverArrow";
 
 const TICKER = [
   { label: "Рейтинг", value: "4.9" },
@@ -7,6 +11,34 @@ const TICKER = [
   { label: "Гарантия", value: "24ч" },
   { label: "Слоты", value: "9–21" },
 ];
+
+const TITLE = "Уборка без стресса за 60 секунд";
+
+/* Character-stagger entrance — entrance adaptation of the Skiper UI
+ * skiper31 CharacterV1 scroll pattern (attribution: Skiper UI free
+ * version). The original disperses on scroll over a 210vh stage; here
+ * characters spring in on mount, which suits a compact hero band. */
+function AnimatedTitle() {
+  const reduce = useReducedMotion();
+  if (reduce) return <>{TITLE}</>;
+  return (
+    <span aria-label={TITLE}>
+      {TITLE.split("").map((c, i) => (
+        <motion.span
+          key={i}
+          aria-hidden
+          className="inline-block"
+          initial={{ opacity: 0, y: 26, rotateX: -50 }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ delay: 0.15 + i * 0.022, type: "spring", bounce: 0.35 }}
+          style={{ transformOrigin: "center" }}
+        >
+          {c === " " ? " " : c}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
 
 export default function Hero() {
   return (
@@ -17,7 +49,7 @@ export default function Hero() {
             Клининг · Квартиры · Офисы
           </p>
           <h1 className="mt-5 max-w-4xl text-[48px] font-black leading-[1] tracking-[-0.05em] text-white md:text-[72px]">
-            Уборка без стресса за 60 секунд
+            <AnimatedTitle />
           </h1>
           <p className="mt-5 max-w-xl text-base leading-[1.5] text-white/70 md:text-lg">
             Профессиональный клининг квартир и офисов: рассчитайте стоимость онлайн и закажите
@@ -27,18 +59,18 @@ export default function Hero() {
             <a
               href="#calc"
               className={cn(
-                "inline-flex items-center gap-2 rounded-(--radius-btn) bg-(--surface-accent) px-6 py-2 text-sm font-semibold uppercase tracking-[0.04em] text-white",
-                "transition hover:brightness-110",
+                "group inline-flex items-center gap-2 rounded-(--radius-btn) bg-(--surface-accent) px-6 py-2 text-sm font-semibold uppercase tracking-[0.04em] text-white",
+                "transition hover:brightness-110 active:scale-95",
               )}
             >
               Рассчитать стоимость
-              <ArrowRight className="size-4" aria-hidden />
+              <HoverArrow />
             </a>
             <a
               href="#services"
               className={cn(
                 "inline-flex items-center rounded-(--radius-btn) border border-white/60 px-6 py-2",
-                "text-sm font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white/10",
+                "text-sm font-semibold uppercase tracking-[0.04em] text-white transition-colors hover:bg-white/10 active:scale-95",
               )}
             >
               Услуги

@@ -1,6 +1,7 @@
 import { ArrowRight, Zap, Star, Crown } from "lucide-react";
 import { BASE_PER_M2 } from "@/data/prices";
 import { cn } from "@/lib/utils";
+import Reveal from "@/components/Reveal";
 
 const PLANS = [
   {
@@ -37,7 +38,8 @@ export default function Tariffs() {
         <h2 className="t-h2 mt-2">
           Тарифы под вашу задачу
         </h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <Reveal className="mt-8">
+          <div className="grid gap-4 md:grid-cols-3">
           {PLANS.map(({ icon: Icon, name, price, text, features, highlight }) => (
             <article
               key={name}
@@ -66,7 +68,8 @@ export default function Tariffs() {
               </a>
             </article>
           ))}
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

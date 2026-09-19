@@ -9,6 +9,7 @@ import {
   SquareStack,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Reveal from "@/components/Reveal";
 
 type PresetType = "support" | "general" | "renovation" | "office";
 
@@ -89,7 +90,8 @@ export default function Services() {
           Фиксированные цены, эко-средства включены. Выберите услугу — калькулятор
           подставит нужный тип уборки.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal className="mt-8">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ title, tag, bullets, price, preset }) => (
             <article
               key={title}
@@ -117,7 +119,8 @@ export default function Services() {
               </button>
             </article>
           ))}
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
