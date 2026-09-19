@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import { Toaster } from "sonner";
 
 import { ThemeProvider } from "@/lib/theme";
@@ -27,13 +26,6 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("cleaning-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}})()`,
-          }}
-        />
         <ThemeProvider>{children}</ThemeProvider>
         <Toaster richColors position="top-center" />
       </body>
