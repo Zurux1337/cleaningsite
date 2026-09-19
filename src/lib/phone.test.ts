@@ -11,4 +11,8 @@ describe("isValidPhone", () => {
     expect(isValidPhone("+7 (912) 345-67-89")).toBe(true);
     expect(isValidPhone("123")).toBe(false);
   });
+  it("rejects overlong input", () => {
+    expect(isValidPhone("891234567890")).toBe(false);
+    expect(isValidPhone("+7 (912) 345-67-890")).toBe(false);
+  });
 });

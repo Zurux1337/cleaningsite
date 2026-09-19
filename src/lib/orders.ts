@@ -59,14 +59,16 @@ function makeId(): string {
 
 export function createOrder(draft: CreateOrderDraft): Order {
   const orders = load();
+  let id: string;
+  do {
+    id = makeId();
+  } while (orders.some((o) => o.id === id));
   const order: Order = {
     ...draft,
-    id: makeId(),
+    id,
     createdAt: new Date().toISOString(),
     status: draft.status ?? "paid",
   };
-  const existing = orders.find((o) => o.id === order.id);
-  if (existing) return existing;
   orders.push(order);
   save(orders);
   return order;
