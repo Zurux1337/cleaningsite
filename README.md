@@ -23,7 +23,7 @@
 
 ## Дизайн
 
-- Стиль: [`styles/references/a16z-speedrun.md`](../.opencode/skills/styles/references/a16z-speedrun.md) —
+- Стиль: `a16z-speedrun` (библиотека портфолио, `styles/references/a16z-speedrun.md`) —
   чёрный фон, крупный жирный гротеск, тонкие hairline-разделители,
   единственный градиентный акцент.
 - Шрифт: Inter.
