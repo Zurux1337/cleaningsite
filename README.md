@@ -7,7 +7,8 @@
 в личный кабинет. Сделан в стиле «монохромная газета + один градиент» —
 чёрный холст, белые заголовки, акцент только на действиях.
 
-**Live:** локальный запуск (публичного деплоя нет) ·
+**Live:** [cleaning-exorcits.vercel.app](https://cleaning-exorcits.vercel.app)
+(деплой под Vercel SSO — без входа откроется только экран логина) ·
 **Код:** [Zurux1337/cleaningsite](https://github.com/Zurux1337/cleaningsite)
 
 ## Что внутри
